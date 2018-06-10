@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<!-- 声明为 HTML5 HyperText Markup Language 5 文档 -->
+<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd"> --><!-- 声明为 HTML4 文档 -->
+<!-- 标签独立成行才能确保在编辑器中自动缩进 -->
+<html>
+	<!-- 是 HTML 页面的根元素 -->
+	<head>
+		<!-- 包含了文档的元（meta）数据，元数据也不显示在页面上，但会被浏览器解析。 -->
+		<meta charset="utf-8"><!-- 描述了文档的标题 -->
+		<meta http-equiv="refresh" content="60"><!-- 每10刷新当前页面 -->
+		<meta name="author" content="wangkan"><!-- 定义网页作者 -->
+		<meta name="description" content="HTML 摘要"><!-- 定义内容概述 -->
+		<meta name="keywords" content="HTML, CSS, XML, XHTML"><!-- 搜索引擎定义关键词 -->
+		<title>HTML Cheat Sheet</title><!-- 文档（web 页面）的标题 -->
+		<!-- <base href="images/" target="_blank"> -->
+		<!-- 使用 <base> 定义页面中所有链接默认的目标地址 -->
+		<style type="text/css">/*标签定义了HTML文档的样式文件引用地址.*/
+			h1 {color:red}
+			body {background-color:lightgray}
+			p {color:blue}
+		</style>
+		<link rel="stylesheet" type="text/css" href="styles.css"><!-- <link> 标签定义了文档与外部资源之间的关系 -->
+		<link rel="stylesheet" type="table/css" href="css/table.css">
+	</head>
+	<body>
+		<!-- 包含了可见的页面内容 -->
+		<h1>这是标题 1</h1>
+		<h2>这是标题 2</h2>
+		<h3>这是标题 3</h3>
+		<h4>这是标题 4</h4>
+		<h5>这是标题 5</h5>
+		<h6>这是标题 6</h6>
+		<p>
+			请确保将 HTML 标题 标签只用于标题。不要仅仅是为了生成粗体或大号的文本而使用标题。
+			<br>
+			搜索引擎使用标题为您的网页的结构和内容编制索引。
+			<br>
+			因为用户可以通过标题来快速浏览您的网页，所以用标题来呈现文档结构是很重要的。
+		</p>
+		<hr>
+		<p>
+			<h2>段落</h2>
+			段落的行数依赖于浏览器窗口的大小。如果调节浏览器窗口的大小，将改变段落中的行数。
+		</p>
+		<hr>
+		<!-- HTML 水平线 -->
+		<p>
+			<a href="https://www.rokcgarden.cn" target="_blank">www.rokcgarden.cn</a>
+			<!-- target 属性设置为 "_blank", 链接将在新窗口打开 -->
+		</p>
+		<p>
+			<img src="images/blue_learn.ico" width="96" height="96" />
+			<!-- 需要相对对路径 images/blue_learn.ico -->
+		</p>
+		<hr>
+		<p>
+			<h2>HTML 标签</h2>
+			<ul>
+				<li>HTML 标签是由<em>尖括号</em>包围的关键词，比如 &lt;html&gt;</li>
+				<li>HTML 标签通常是<em>成对出现</em>的，比如 &lt;b&gt; 和 &lt;/b&gt;</li>
+				<li>标签对中的第一个标签是<em>开始标签</em>，第二个标签是<em>结束标签</em></li>
+				<li>开始和结束标签也被称为<em>起始标签（opening tag）</em>和<em>闭合标签（closing tag）</em></li>
+			</ul>
+		</p>
+		<hr>
+		<p>
+			<h2>HTML 元素语法</h2>
+			<ul>
+				<li>HTML 元素以<b>开始标签</b>起始</li>
+				<li>HTML 元素以<b>结束标签</b>终止</li>
+				<li><b>元素的内容</b>是开始标签与结束标签之间的内容</li>
+				<li>某些 HTML 元素具有<b>空内容（empty content）</b></li>
+				<li>空元素<b>在开始标签中进行关闭</b>（以开始标签的结束而结束）
+					<br>
+					<!-- HTML 折行 -->
+					在开始标签中添加斜杠，比如 &lt;br /&gt;，是关闭空元素的正确方法<br>
+					HTML、XHTML 和 XML 都接受这种方式。
+				</li>
+				<li>大多数 HTML 元素可拥有<b>属性</b></li>
+			</ul>
+		</p>
+		<hr>
+		<p>
+			<h2>HTML 元素属性</h2>
+			<ul>
+				<li>HTML 元素可以设置<b>属性</b></li>
+				<li>属性可以在元素中添加<b>附加信息</b></li>
+				<li>属性一般描述于<b>开始标签</b></li>
+				<li>属性总是以<b>名称/值对</b>的形式出现，<b>比如：name="value"</b>。</li>
+			</ul>
+		</p>
+		<hr>
+		<p>
+			<h2>HTML 元素属性引用</h2>
+			属性值应该始终被包括在引号内。<br>
+			双引号是最常用的，不过使用单引号也没有问题。<br>
+			<b>提示:</b>
+			在某些个别的情况下，比如属性值本身就含有双引号，那么您必须使用单引号，例如：name='John "ShotGun" Nelson'<br>
+			查看完整的HTML属性列表:
+			<a href="http://www.runoob.com/tags/ref-standardattributes.html" target="_blank">HTML 标签参考手册</a>。
+			下面列出了适用于大多数 HTML 元素的属性：<br>
+			<table class="reference" border="1">
+				<tbody>
+					<tr>
+						<th align="left" width="15%">属性</th>
+						<th align="left" width="85%">描述</th>
+					</tr>
+					<tr>
+						<td>class</td>
+						<td>为html元素定义一个或多个类名（classname）(类名从样式文件引入)</td>
+					</tr>
+					<tr>
+						<td>id</td>
+						<td>定义元素的唯一id</td>
+					</tr>
+					<tr>
+						<td>style</td>
+						<td>规定元素的行内样式（inline style）</td>
+					</tr>
+					<tr>
+						<td>title</td>
+						<td>描述了元素的额外信息 (作为工具条使用)</td>
+					</tr>
+				</tbody>
+			</table>
+		</p>
+		<hr>
+		<p>
+			<h2 class="example">HTML 文本格式化</h2>
+			<div class="example_result" style="font-size:120%;">
+				<em>强调文本</em><br>
+				<strong>加粗文本</strong><br>
+				<dfn>定义项目</dfn><br>
+				<code>一段电脑代码</code><br>
+				<samp>计算机样本</samp><br>
+				<kbd>键盘输入</kbd><br>
+				<var>变量</var>
+				<i>斜体文本</i><br><br>
+				这是<sub> 下标</sub> 和<sup> 上标</sup><br>
+				My favorite color is <del>blue</del> <ins>red</ins>!<br>
+				该段文字从左到右显示: <bdo dir="rtl">该段文字从右到左显示</bdo><br>
+				在某些浏览器中，当您把鼠标移至缩略词语上时，title 可用于展示表达的完整版本。<br>
+			</div>
+		</p>
+		<p>
+			<pre>
+				此例演示如何使用 pre 标签
+				对空行和    空格
+				进行控制
+			</pre>
+		</p>
+		<p>
+			<!-- <abbr title="etcetera">etc.</abbr> -->
+			<!--  <acronym title="World Wide Web">WWW</acronym> HTML 4 -->
+		</p>
+		<p>
+			<div>
+				<img src="images/img_the_scream.jpg" width="220" height="277" alt="The Scream">
+				<cite>The Scream</cite> by Edward Munch. Painted in 1893.<br><!-- <cite> 标签定义作品（比如书籍、歌曲、电影、电视节目、绘画、雕塑等等）的标题。 -->
+				<address>
+					Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>
+					Visit us at:<br>
+					Example.com<br>
+					Box 564, Disneyland<br>
+					USA
+				</address>
+				<blockquote cite="http://www.worldwildlife.org/who/index.html">
+					For 50 years, WWF has been protecting the future of nature. The worlds leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
+				</blockquote>
+				
+			</div>
+		</p>
+		<hr>
+		<p>
+			<h2>HTML CSS</h2>
+			<div style="opacity:0.5;position:absolute;left:50px;width:300px;height:150px;background-color:#40B3DF"></div>
+			<div style="font-family:verdana;padding:20px;border-radius:10px;border:10px solid #EE872A;">
+				<div style="opacity:0.3;position:absolute;left:120px;width:100px;height:200px;background-color:#8AC007"></div>
+				<h3>Look! Styles and colors</h3>
+				<div style="letter-spacing:12px;">Manipulate Text</div>
+				<div style="color:#40B3DF;">Colors
+					<span style="background-color:#B4009E;color:#ffffff;">Boxes</span>
+				</div>
+				<div style="color:#000000;">and more...</div>
+			</div>
+			<h3 style="font-family:verdana;">一个标题</h3>
+			<p style="font-family:arial;color:red;font-size:20px;">这是一个段落。</p>
+			<h3 style="text-align:center;">居中对齐的标题</h3>
+			<p>这是一个段落。</p>
+			<p>
+				<img border="1"src="images/blue_learn.ico" alt="Remark" width="10" height="10">
+			</p>
+		</p>
+		<p>
+			<h2>HTML 链接</h2>
+			创建图片链接:
+			<a href="https://www.rokcgarden.cn">
+			<img  border="10" src="images/blue_learn.ico" alt="图片链接示例" width="32" height="32"></a><br>
+			无边框的图片链接:
+			<a href="https://www.rokcgarden.cn">
+			<img border="0" src="images/blue_learn.ico" alt="图片链接示例" width="32" height="32"></a>
+			<p>
+				<p>
+					<a href="#C4">查看章节 4</a>
+				</p>
+				<h3>章节 1</h3>
+				<p>这边显示该章节的内容……</p>
+				<h3>章节 2</h3>
+				<p>这边显示该章节的内容……</p>
+				<h3>章节 3</h3>
+				<p>这边显示该章节的内容……</p>
+				<h3><a id="C4">章节 4</a></h3>
+				<p>这边显示该章节的内容……</p>
+				<h3>章节 5</h3>
+				<p>这边显示该章节的内容……</p>
+				<h3>章节 6</h3>
+				<p>这边显示该章节的内容……</p>
+				<h3>章节 7</h3>
+				<p>这边显示该章节的内容……</p>
+				<p>跳出框架?<a href="http://www.runoob.com/" target="_top" style="text-decoration:none">访问 runoob.com!</a> </p>
+				<p>
+					这是另一个电子邮件链接：
+					<a href="mailto:someone@example.com?cc=someoneelse@example.com&bcc=andsomeoneelse@example.com&subject=Summer%20Party&body=You%20are%20invited%20to%20a%20big%20summer%20party!" target="_top">发送邮件!</a><br>
+					<b>注意:</b>单词直接空格使用 %20 代替，以确保浏览器可以正常显示文本。
+				</p>
+			</p>
+		</p>
+		<p>
+			<h2>HTML 图像</h2>
+			<h4>默认对齐的图像 (H4 align="bottom" H5 style="float:bottom"):</h4>
+			<p>这是一些文本。 <img src="images/blue_learn.ico" alt="test image" width="32" height="32"> 这是一些文本。</p>
+			<h4>图片使用 H4 align="middle":</h4>
+			<p>这是一些文本。 <img src="images/blue_learn.ico" alt="test middle" align="middle" width="32" height="32">这是一些文本。</p>
+			<h4>图片使用 H5 style="float:top":</h4>
+			<p>这是一些文本。 <img src="images/blue_learn.ico" style="float:top" width="32" height="32">这是一些文本。</p>
+			<p><b>注意:</b>在HTML 4中 align 属性已废弃，HTML5 已不支持该属性，可以使用 CSS 代替。</p>
+			<img src="images/blue_learn.ico" alt="Smiley face" style="float:left" width="32" height="32"> 一个带图片的段落，图片浮动在这个文本的左边。
+			<img src="images/blue_learn.ico" alt="Smiley face" style="float:right" width="32" height="32"> 一个带图片的段落，图片浮动在这个文本的右边。
+			<p><b>注意:</b> 在这里我们使用了 CSS "float" 属性，在HTML 4中 align 属性已废弃，HTML5 已不支持该属性，可以使用 CSS 代替。</p>
+			<p>
+				<a href="http://www.runoob.com/try/try.php?filename=tryhtml_areamap"><b>创建图像映射示例</b></a>
+				<!-- <<map name="planetmap"><area shape="rect" coords="0,0,82,126" alt="Sun" href="sun.htm"><area shape="circle" coords="90,58,3" alt="Mercury" href="mercur.htm"></map>> -->
+				<!-- <area shape="circle" coords="x1,y1,r" href=url> -->
+				<!-- <area shape="poly" coords="x1,y1,x2,y2 ......" href=url> -->
+				<!-- coords指的是链接区域在图片中的坐标(像素为单位) -->
+			</p>
+		</p>
+		<hr>
+		<p>
+			<h2>HTML Table</h2>
+			<h3>水平heading:</h3>
+			<table border="1">
+				<tr>
+					<th>Name</th>
+					<th>Telephone</th>
+					<th>Telephone</th>
+				</tr>
+				<tr>
+					<td>Bill Gates</td>
+					<td>555 77 854</td>
+					<td>555 77 855</td>
+				</tr>
+			</table>
+			<h3>垂直heading:</h3>
+			<table border="1">
+				<tr>
+					<th>First Name:</th>
+					<td>Bill Gates</td>
+				</tr>
+				<tr>
+					<th>Telephone:</th>
+					<td>555 77 854</td>
+				</tr>
+				<tr>
+					<th>Telephone:</th>
+					<td>555 77 855</td>
+				</tr>
+			</table>
+			<h3>有caption:</h3>
+			<table border="1">
+				<caption>Monthly savings</caption>
+				<tr>
+					<th>Month</th>
+					<th>Savings</th>
+				</tr>
+				<tr>
+					<td>January</td>
+					<td>$100</td>
+				</tr>
+				<tr>
+					<td>February</td>
+					<td>$50</td>
+				</tr>
+			</table>
+			<h3>单元格跨两格:</h3>
+			<table border="1">
+				<tr>
+					<th>Name</th>
+					<th colspan="2">Telephone</th>
+				</tr>
+				<tr>
+					<td>Bill Gates</td>
+					<td>555 77 854</td>
+					<td>555 77 855</td>
+				</tr>
+			</table>
+			<h3>单元格跨两列:</h3>
+			<table border="1">
+				<tr>
+					<th>First Name:</th>
+					<td>Bill Gates</td>
+				</tr>
+				<tr>
+					<th rowspan="2">Telephone:</th>
+					<td>555 77 854</td>
+				</tr>
+				<tr>
+					<td>555 77 855</td>
+				</tr>
+			</table>
+			<h3>表格内的标签:</h3>
+			<table border="1">
+				<tr>
+					<td>
+						<p>这是一个段落</p>
+						<p>这是另一个段落</p>
+					</td>
+					<td>这个单元格包含一个表格:
+						<table border="1">
+							<tr>
+								<td>A</td>
+								<td>B</td>
+							</tr>
+							<tr>
+								<td>C</td>
+								<td>D</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>这个单元格包含一个列表
+						<ul>
+							<li>apples</li>
+							<li>bananas</li>
+							<li>pineapples</li>
+						</ul>
+					</td>
+					<td>HELLO</td>
+				</tr>
+			</table>
+			<h3>单元格边距:</h3>
+			<table border="1"
+				cellpadding="10">
+				<tr>
+					<td>First</td>
+					<td>Row</td>
+				</tr>
+				<tr>
+					<td>Second</td>
+					<td>Row</td>
+				</tr>
+			</table>
+			<h3>单元格间距="10":</h3>
+			<table border="1" cellspacing="10">
+				<tr>
+					<td>First</td>
+					<td>Row</td>
+				</tr>
+				<tr>
+					<td>Second</td>
+					<td>Row</td>
+				</tr>
+			</table>
+			<h3>Table Demo</h3>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+				<tr>
+					<td align="center" class="biaoti" height="60">统计表</td>
+				</tr>
+				<tr>
+					<td align="right" height="25">2017-01-02---2017-05-02</td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#cccccc" class="tabtop13" align="center">
+				<tr>
+					<td colspan="2" class="btbg font-center titfont" rowspan="2">受理员</td>
+					<td width="10%" class="btbg font-center titfont" rowspan="2">受理数</td>
+					<td width="10%" class="btbg font-center titfont" rowspan="2">自办数</td>
+					<td width="10%" class="btbg font-center titfont" rowspan="2">直接解答</td>
+					<td colspan="2" class="btbg font-center titfont">拟办意见</td>
+					<td colspan="2" class="btbg font-center titfont">返回修改</td>
+					<td colspan="3" class="btbg font-center titfont">工单类型</td>
+				</tr>
+				<tr>
+					<td width="8%" class="btbg font-center">同意</td>
+					<td width="8%" class="btbg font-center">比例</td>
+					<td width="8%" class="btbg font-center">数量</td>
+					<td width="8%" class="btbg font-center">比例</td>
+					<td width="8%" class="btbg font-center">建议件</td>
+					<td width="8%" class="btbg font-center">诉求件</td>
+					<td width="8%" class="btbg font-center">咨询件</td>
+				</tr>
+				<tr>
+					<td width="7%" rowspan="8" class="btbg1 font-center">受理处</td>
+					<td width="7%"  class="btbg2">王艳</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="btbg2">&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="btbg2">&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="btbg2">&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="btbg2">&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="btbg2">&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="btbg2">&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="btbg2 font-center">总计</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+				</tr>
+				<tr>
+					<td width="7%" rowspan="8" class="btbg1 font-center">话务组</td>
+					<td width="7%"  class="btbg2">王艳</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="btbg2">王艳</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="btbg2">王艳</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="btbg2">王艳</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="btbg2">&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="btbg2">&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="btbg2">&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="btbg2 font-center">总计</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+					<td class="btbg2 font-center">20</td>
+				</tr>
+			</table>
+		</p>
+		<p>
+			<h2>HTML 列表</h2>
+			<h3>编号列表：</h3>
+			<ol>
+				<li>Apples</li>
+				<li>Bananas</li>
+				<li>Lemons</li>
+				<li>Oranges</li>
+			</ol>
+			<ol start="50">
+				<li>Coffee</li>
+				<li>Tea</li>
+				<li>Milk</li>
+			</ol>
+			<h4>大写字母列表：</h4>
+			<ol type="A">
+				<li>Apples</li>
+				<li>Bananas</li>
+				<li>Lemons</li>
+				<li>Oranges</li>
+			</ol>
+			<h4>小写字母列表：</h4>
+			<ol type="a">
+				<li>Apples</li>
+				<li>Bananas</li>
+				<li>Lemons</li>
+				<li>Oranges</li>
+			</ol>
+			<h4>罗马数字列表：</h4>
+			<ol type="I">
+				<li>Apples</li>
+				<li>Bananas</li>
+				<li>Lemons</li>
+				<li>Oranges</li>
+			</ol>
+			<h4>小写罗马数字列表：</h4>
+			<ol type="i">
+				<li>Apples</li>
+				<li>Bananas</li>
+				<li>Lemons</li>
+				<li>Oranges</li>
+			</ol>
+			<h3>编号列表：</h3>
+			<p><b>注意：</b> 在 HTML 4中 ul 属性已废弃，HTML5 已不支持该属性，因此我们使用 CSS 代替来定义不同类型的无序列表如下：</p>
+			<h4>圆点列表：</h4>
+			<ul style="list-style-type:disc">
+				<li>Apples</li>
+				<li>Bananas</li>
+				<li>Lemons</li>
+				<li>Oranges</li>
+			</ul>
+			<h4>圆圈列表：</h4>
+			<ul style="list-style-type:circle">
+				<li>Apples</li>
+				<li>Bananas</li>
+				<li>Lemons</li>
+				<li>Oranges</li>
+			</ul>
+			<h4>正方形列表：</h4>
+			<ul style="list-style-type:square">
+				<li>Apples</li>
+				<li>Bananas</li>
+				<li>Lemons</li>
+				<li>Oranges</li>
+			</ul>
+			<h3>嵌套列表​：</h3>
+			<ul>
+				<li>Coffee</li>
+				<li>Tea
+					<ul>
+						<li>Black tea</li>
+						<li>Green tea</li>
+					</ul>
+				</li>
+				<li>Milk</li>
+			</ul>
+			<ul>
+				<li>Coffee</li>
+				<li>Tea
+					<ul>
+						<li>Black tea</li>
+						<li>Green tea
+							<ul>
+								<li>China</li>
+								<li>Africa</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>Milk</li>
+			</ul>
+			<h3>一个自定义列表：</h3>
+			<dl>
+				<dt>Coffee</dt>
+				<dd>- black hot drink</dd>
+				<dt>Milk</dt>
+				<dd>- white cold drink</dd>
+			</dl>
+		</p>
+		<hr>
+		<p>
+			<h2>HTML 区块</h2>
+			<h3>HTML 区块元素</h3>
+			<p>大多数 HTML 元素被定义为<strong>块级元素</strong>或<strong>内联元素</strong>。</p>
+			<p>块级元素在浏览器显示时，通常会以新行来开始（和结束）。</p>
+			<p>实例: &lt;h1&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;table&gt; </p>
+			<h3>HTML 内联元素</h3>
+			<p>内联元素在显示时通常不会以新行开始。</p>
+			<p>实例: &lt;b&gt;, &lt;td&gt;, &lt;a&gt;, &lt;img&gt;</p>
+			<h3>HTML &lt;div&gt; 元素</h3>
+			<p>HTML &lt;div&gt; 元素是块级元素，它可用于组合其他 HTML 元素的容器。</p>
+			<p> &lt;div&gt; 元素没有特定的含义。除此之外，由于它属于块级元素，浏览器会在其前后显示折行。</p>
+			<p>如果与 CSS 一同使用，&lt;div&gt; 元素可用于对大的内容块设置样式属性。</p>
+			<p>&lt;div&gt; 元素的另一个常见的用途是文档布局。它取代了使用表格定义布局的老式方法。使用 &lt;table&gt; 元素进行文档布局不是表格的正确用法。&lt;table&gt; 元素的作用是显示表格化的数据。</p>
+			<h3>HTML &lt;span&gt; 元素</h3>
+			<p>HTML &lt;span&gt; 元素是内联元素，可用作文本的容器</p>
+			<p>&lt;span&gt; 元素也没有特定的含义。 </p>
+			<p>当与 CSS 一同使用时，&lt;span&gt; 元素可用于为部分文本设置样式属性。</p>
+			<h3>HTML 分组标签</h3>
+			<table class="reference notranslate">
+				<tbody><tr>
+					<th align="left">标签</th>
+					<th align="left">描述</th>
+				</tr>
+				<tr>
+					<td><a href="/tags/tag-div.html">&lt;div&gt;</a></td>
+					<td>定义了文档的区域，块级 (block-level)</td>
+				</tr>
+				<tr>
+					<td><a href="/tags/tag-span.html">&lt;span&gt;</a></td>
+					<td>用来组合文档中的行内元素， 内联元素(inline)</td>
+				</tr>
+			</tbody></table>
+			<div style="color:#0000FF">
+				<h3>这是一个在 div 元素中的标题。</h3>
+				<p>这是一个在 div 元素中的文本。</p>
+			</div>
+		</p>
+		<hr>
+		<p>
+			<h2>HTML 布局</h2>
+			Tip: 使用 CSS 最大的好处是，如果把 CSS 代码存放到外部样式表中，那么站点会更易于维护。通过编辑单一的文件，就可以改变所有页面的布局。<br>
+			Tip: 由于创建高级的布局非常耗时，使用模板是一个快速的选项。
+			<div id="container" style="width:100%">
+				<div id="header" style="background-color:#FFA500;">
+				<h1 style="margin-bottom:0;">主要的网页标题(Use Div)</h1></div>
+				<div id="menu" style="background-color:#FFD700;height:200px;width:20%;float:left;">
+					<b>菜单</b><br>
+					HTML<br>
+					CSS<br>
+				JavaScript</div>
+				<div id="content" style="background-color:#EEEEEE;height:200px;width:80%;float:left;">
+				内容在这里</div>
+				<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+				版权 © rockgarden.cn</div>
+			</div>
+			<table width="80%" border="0">
+				<tr>
+					<td colspan="2" style="background-color:#FFA500;">
+						<h1>主要的网页标题(Use Table)</h1>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color:#FFD700;width:100px;vertical-align:top;">
+						<b>菜单</b><br>
+						HTML<br>
+						CSS<br>
+						JavaScript
+					</td>
+					<td style="background-color:#eeeeee;height:200px;width:400px;vertical-align:top;">
+					内容在这里</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="background-color:#FFA500;text-align:center;">
+					版权 © rockgarden.cn</td>
+				</tr>
+			</table>
+			<div id="maxname" style="width:500px;">
+				<div id="hname" style="background-color:#666FFF;">
+					<h1 style="margin-bottom:0;text-align:center;">Div布局实例</h1>
+				</div>
+				<div id="menu" style="background-color:#FFFFFF;height:200px;width:100px;float:left;">
+					菜单<br/>
+					num1<br/>
+					num2<br/>
+					num3
+				</div>
+				<div id="content" style="background-color:#FFFF00;height:200px;width:300px;float:left;">
+					中间内容
+				</div>
+				<div id="right" style="background-color:#000000;color:#FFFFFF;height:200px;width:100px;float:right;">
+					信息内容
+				</div>
+				<div id="bool" style="background-color:#F0F8FF;clear:both;text-align:center;">
+					作者：Cty
+				</div>
+			</div>
+		</p>
+		
+		<iframe width="100%" height="200" src="https://c.runoob.com/iframe/3187" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+	</body>
+</html>

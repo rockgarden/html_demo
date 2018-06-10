@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="refresh" content="60">
+		<title>JavaScript Cheat Sheet</title>
+		<!-- <base href="images/" target="_blank"> -->
+		<script>
+			function displayDate(){
+				document.getElementById("date").innerHTML=Date();
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<h2>JavaScript 用法</h2>
+			HTML 中的脚本必须位于 &lt;script&gt;与&lt;/script&gt;标签之间。<br>
+			脚本可被放置在 HTML 页面的 body 和 head 部分中。<br>
+			通常的做法是把函数放入 head 部分中，或者放在页面底部。这样就可以把它们安置到同一处位置，不会干扰页面的内容。
+		</p>
+		<hr>
+		<p>
+			<h3>外部 JavaScript</h3>
+			也可以把脚本保存到外部文件中。外部文件通常包含被多个网页使用的代码。<br>
+			外部 JavaScript 文件的文件扩展名是 .js。<br>
+			如需使用外部文件，请在 script 标签的 "src" 属性中设置该 .js 文件：<br>
+			外部脚本不能包含 script 标签。<br>
+			<p id="external_js_demo">测试外部JS</p>
+			<button type="button" onclick="myFunction()">点击这里</button>
+			<script src="js/myjs.js"></script>
+		</p>
+		<hr>
+		<p>
+			<h2>Demo JS</h2>
+			<p id="date">日期📅</p>
+			<button type="button" onclick="displayDate()">显示日期</button><br>
+			<script>
+			function changeImage()
+			{
+				element=document.getElementById('myimage')
+				if (element.src.match("bulbon"))
+				{
+					element.src="images/pic_bulboff.gif";
+				}
+				else
+				{
+					element.src="images/pic_bulbon.gif";
+				}
+			}
+			</script>
+			<img id="myimage" onclick="changeImage()" src="images/pic_bulboff.gif" width="100" height="180"><br>
+			<b>点击灯泡就可以打开或关闭这盏灯</b>
+		</p>
+		<hr>
+		<p>
+			<h2>JavaScript 输出</h2>
+			<ul>
+				<li>使用 <strong>window.alert()</strong> 弹出警告框。</li>
+				<li>使用 <strong>document.write()</strong> 方法将内容写到 HTML 文档中。</li>
+				<li>使用 <strong>innerHTML</strong> 写入到 HTML 元素。</li>
+				<li>使用 <strong>console.log()</strong> 写入到浏览器的控制台。</li>
+			</ul>
+			<p>
+				<h3>window.alert()</h3>
+				<script>
+				window.alert(5 + 6);
+				</script>
+				JavaScript 能够对事件作出反应。比如对按钮的点击：
+				<button type="button" onclick="alert('欢迎!')">点我!</button>
+			</p>
+			<p>
+				<h3>document.write()</h3>
+				<script>
+					document.write("<h4>这是一个标题</h4>");
+					document.write("<p>这是一个段落。</p>");
+				</script>
+				您只能在 HTML 输出流中使用 <strong>document.write</strong>。<br>
+				也就是说document.write 页面加载时执行。<br>
+				如果您在文档已加载后使用它（比如在函数中），会覆盖整个文档。
+			</p>
+			<p>
+				<h3>innerHTML</h3>
+				<p id="demo_change_content">???</p>
+				<script>
+				function changeContent()
+				{
+					x=document.getElementById("demo_change_content");  // 找到元素
+					x.innerHTML="Hello JavaScript!";  // 改变内容
+				}
+				</script>
+				<button type="button" onclick="changeContent()">点击这里</button><br>
+			</p>
+			<p>
+				<h3>console.log</h3>
+				浏览器中(Chrome, IE, Firefox)使用 F12 来启用调试模式，在调试窗口中点击 "Console" 菜单。
+				<script>
+				a = 5;
+				b = 6;
+				c = a + b;
+				console.log(c);
+				</script>
+			</p>
+		</p>
+		<hr>
+		<p>
+			<h2>JavaScript 语法</h2>
+			<p>
+				<h3>JavaScript 字面量</h3>
+				使用 JavaScript 字面量，同一般的编程语言，多指固定值。<br>
+				<ul>
+					<li>
+						数字（Number）字面量 可以是整数或者是小数，或者是科学计数(e)。<br>
+						<p id="literal_demo"></p>
+						<script>
+						document.getElementById("literal_demo").innerHTML = 123e5;
+						</script>
+					</li>
+					<li>字符串（String）字面量 可以使用单引号或双引号。</li>
+					<li>
+						数组（Array）字面量 定义一个数组<br>
+						[40, 100, 1, 5, 25, 10]
+					</li>
+					<li>
+						对象（Object）字面量<br>
+						{firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"}
+					</li>
+					<li>
+						函数（Function）字面量<br>
+						function myFunction(a, b) { return a * b;}
+					</li>
+				</ul>
+			</p>
+			
+			<p>
+				<h3>JavaScript 变量</h3>
+				JavaScript是弱类型编程语言，使用关键字 var 来定义变量，使用等号来为变量赋值.<br>
+				<p id="var_demo"></p>
+				<script>
+				var length;
+				length = 6;
+				document.getElementById("var_demo").innerHTML = length;
+				</script>
+			</p>
+			<p>
+				<h3>操作符</h3>
+				<p id="operator_demo"></p>
+				<script>
+				var x, y, z;
+				x = 5;
+				y = 6;
+				z = (x + y) * 10;
+				document.getElementById("operator_demo").innerHTML = z;
+				</script>
+				<table class="reference" border="1">
+					<tr>
+						<th>类型</th>
+						<th>实例</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>赋值，算术和位运算符</td>
+						<td>=  +  -  *  /</td>
+						<td>在 JS 运算符中描述</td>
+					</tr>
+					<tr>
+						<td>条件，比较及逻辑运算符</td>
+						<td>==  != &lt;  &gt;  </td>
+						<td>在 JS 比较运算符中描述</td>
+					</tr>
+				</table>
+			</p>
+			<p>
+				<h3>JavaScript 关键字</h3>
+				<table class="reference">
+					<tbody>
+						<tr>
+							<td>abstract</td>
+							<td>else</td>
+							<td>instanceof</td>
+							<td>super</td>
+						</tr>
+						<tr>
+							<td>boolean</td>
+							<td>enum</td>
+							<td>int</td>
+							<td>switch</td>
+						</tr>
+						<tr>
+							<td>break</td>
+							<td>export</td>
+							<td>interface</td>
+							<td>synchronized</td>
+						</tr>
+						<tr>
+							<td>byte</td>
+							<td>extends</td>
+							<td>let</td>
+							<td>this</td>
+						</tr>
+						<tr>
+							<td>case</td>
+							<td>false</td>
+							<td>long</td>
+							<td>throw</td>
+						</tr>
+						<tr>
+							<td>catch</td>
+							<td>final</td>
+							<td>native</td>
+							<td>throws</td>
+						</tr>
+						<tr>
+							<td>char</td>
+							<td>finally</td>
+							<td>new</td>
+							<td>transient</td>
+						</tr>
+						<tr>
+							<td>class</td>
+							<td>float</td>
+							<td>null</td>
+							<td>true</td>
+						</tr>
+						<tr>
+							<td>const</td>
+							<td>for</td>
+							<td>package</td>
+							<td>try</td>
+						</tr>
+						<tr>
+							<td>continue</td>
+							<td>function</td>
+							<td>private</td>
+							<td>typeof</td>
+						</tr>
+						<tr>
+							<td>debugger</td>
+							<td>goto</td>
+							<td>protected</td>
+							<td>var</td>
+						</tr>
+						<tr>
+							<td>default</td>
+							<td>if</td>
+							<td>public</td>
+							<td>void</td>
+						</tr>
+						<tr>
+							<td>delete</td>
+							<td>implements</td>
+							<td>return</td>
+							<td>volatile</td>
+						</tr>
+						<tr>
+							<td>do</td>
+							<td>import</td>
+							<td>short</td>
+							<td>while</td>
+						</tr>
+						<tr>
+							<td>double</td>
+							<td>in</td>
+							<td>static</td>
+							<td>with</td>
+						</tr>
+					</tbody>
+				</table>
+			</p>
+			<p>
+				<h3>数据类型</h3>
+				在定义后可以通过 typeOf() 来获取JavaScript中变量的数据类型.<br>
+				var length = 16;                                  // Number 通过数字字面量赋值 <br>
+				var points = x * 10;                              // Number 通过表达式字面量赋值<br>
+				var lastName = "Johnson";                         // String 通过字符串字面量赋值<br>
+				var cars = ["Saab", "Volvo", "BMW"];              // Array  通过数组字面量赋值<br>
+				var person = {firstName:"John", lastName:"Doe"};  // Object 通过对象字面量赋值
+			</p>
+			<p>
+				<h3>JavaScript 关键字</h3>
+				<table class="reference">
+					<tbody>
+						<tr>
+							<th>语句</th>
+							<th>描述</th>
+						</tr>
+						<tr>
+							<td>break</td>
+							<td>用于跳出循环。</td>
+						</tr>
+						<tr>
+							<td>catch</td>
+							<td>语句块，在 try 语句块执行出错时执行 catch 语句块。</td>
+						</tr>
+						<tr>
+							<td>continue</td>
+							<td>跳过循环中的一个迭代。</td>
+						</tr>
+						<tr>
+							<td>do ... while</td>
+							<td>执行一个语句块，在条件语句为 true 时继续执行该语句块。</td>
+						</tr>
+						<tr>
+							<td>for</td>
+							<td>在条件语句为 true 时，可以将代码块执行指定的次数。 </td>
+						</tr>
+						<tr>
+							<td>for ... in </td>
+							<td>用于遍历数组或者对象的属性（对数组或者对象的属性进行循环操作）。</td>
+						</tr>
+						<tr>
+							<td>function</td>
+							<td>定义一个函数</td>
+						</tr>
+						<tr>
+							<td>if ... else</td>
+							<td>用于基于不同的条件来执行不同的动作。</td>
+						</tr>
+						<tr>
+							<td>return</td>
+							<td>退出函数</td>
+						</tr>
+						<tr>
+							<td>switch</td>
+							<td>用于基于不同的条件来执行不同的动作。</td>
+						</tr>
+						<tr>
+							<td>throw</td>
+							<td>抛出（生成）错误 。 </td>
+						</tr>
+						<tr>
+							<td>try</td>
+							<td>实现错误处理，与 catch 一同使用。 </td>
+						</tr>
+						<tr>
+							<td>var</td>
+							<td>声明一个变量。</td>
+						</tr>
+						<tr>
+							<td>while</td>
+							<td>当条件语句为 true 时，执行语句块。 </td>
+						</tr>
+					</tbody>
+				</table>
+			</p>
+			<p>
+				<h3>其它要点</h3>
+				JavaScript 对大小写是敏感。<br>
+				JavaScript 中，常见的是驼峰法的命名规则，如 lastName (而不是lastname)。<br>
+				JavaScript 会忽略多余的空格。您可以向脚本添加空格，来提高其可读性。<br>
+				您可以在文本字符串中使用反斜杠对代码行进行换行。<br>
+				JavaScript 语句是用分号分隔，可在一行中编写多条语句。
+			</p>
+		</p>
+		<hr>
+		<p>
+			<h2>JavaScript 能改变 HTML 元素的样式</h2>
+			<p id="demo_style"><b>look here!</b></p>
+			<script>
+			function changeColor()
+			{
+				x=document.getElementById("demo_style") // 找到元素
+				x.style.color="#ff0000";  // 改变样式
+			}
+			</script>
+			<button type="button" onclick="changeColor()">点击这里</button>
+		</p>
+		<hr>
+		<p>
+			<h2>JavaScript 控制输入</h2>
+			请输入数字。如果输入值不是数字，浏览器会弹出提示框。<br>
+			<input id="demo_input" type="text"><br>
+			<script>
+				function inputNumber()
+				{
+					var x=document.getElementById("demo_input").value;
+					if(x==""||isNaN(x))
+					{
+						alert("不是数字");
+					}
+				}
+			</script>
+			<button type="button" onclick="inputNumber()">点击这里</button>
+		</p>
+	</body>
+</html>
