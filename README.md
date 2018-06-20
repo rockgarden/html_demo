@@ -1,2 +1,7 @@
 # html_demo
-html5
+
+需要安装的package:
+- SublimeServer
+- React IDE
+- Emment
+- HTMLBeautify

@@ -381,5 +381,136 @@
 			</script>
 			<button type="button" onclick="inputNumber()">点击这里</button>
 		</p>
+		<hr>
+		<p>
+			<h2>JavaScript 变量/作用域</h2>
+			当您向变量分配文本值时，应该用双引号或单引号包围这个值。<br>
+			当您向变量赋的值是数值时，不要使用引号。如果您用引号包围数值，该值会被作为文本来处理。<br>
+			全局变量是在函数外定义, 它的作用域是全局性的, 在web页面中全局变量属于 window 对象。<br>
+			而在函数内部声明的变量，只在函数内部起作用。<br>
+			<ul>
+				<li>变量必须以字母开头。</li>
+				<li>变量也能以 $ 和 _ 符号开头（不过我们不推荐这么做）。</li>
+				<li>变量名称对大小写敏感（y 和 Y 是不同的变量）。</li>
+				<li>在计算机程序中，经常会声明无值的变量。未使用值来声明的变量，其值实际上是 Value = undefined。</li>
+				<li>如果重新声明 JavaScript 变量，该变量的值不会丢失。</li>
+				<li>变量声明时如果不使用 var 关键字，那么它就是一个全局变量，即便它在函数内定义。</li>
+				<li>函数内部声明的变量，只在函数内部起作用。</li>
+			</ul>
+			<script>
+			var x=5;
+			var y=6;
+			var z=x+y;
+			document.write(x + "<br>");
+			document.write(y + "<br>");
+			document.write(z + "<br>");
+			</script>
+			<h3>var 变量</h3>
+			<pre>
+				var num1 = 1;  // 全局变量
+				num2 = 2;  // 全局变量,window属性
+				// delete num1;  无法删除
+				// delete num2;  删除
+				function model(){
+				var num1 = 1; // 本地变量
+				num2 = 2;     // window的属性
+				    // 匿名函数
+				    (function(){
+				        var num = 1; // 本地变量
+				        num1 = 2; // 继承作用域（闭包）
+				        num3 = 3; // window的属性
+				    }())
+				}
+			</pre>
+			<h3>let 变量</h3>
+			let var1 [= value1] [, var2 [= value2]] [, ..., varN [= valueN]];<br>
+			let允许你声明一个作用域被限制在块级中的变量、语句或者表达式。在Function中局部变量推荐使用let变量，避免变量名冲突。<br>
+			<h3>JavaScript 作用域</h3>
+			在 JavaScript 中, 对象和函数同样也是变量。作用域为可访问变量，对象，函数的集合。<br>
+			JavaScript 函数作用域: 作用域在函数内修改。<br>
+			如果你的变量没有声明，它将自动成为全局变量：
+			<p id="demo_scope"></p>
+			<script>
+			myFunction();
+			document.getElementById("demo_scope").innerHTML = "我可以显示 " + carName;
+			function myFunction()
+			{
+				carName = "Volvo";
+			}
+			</script>
+		</p>
+		<hr>
+		<p>
+			<h2>JavaScript 函数</h2>
+			<h3>JavaScript 内嵌函数</h3>
+			<p id="inline_demo">0</p>
+			<script>
+			document.getElementById("inline_demo").innerHTML = add();
+			function add() {
+				var counter = 0;
+				function plus() {counter += 1;}
+				plus();
+				return counter;
+			}
+			</script>
+			<h3>JavaScript 闭包函数</h3>
+			闭包是可访问上一层函数作用域里变量的函数，即便上一层函数已经关闭。
+			<p>局部变量计数。</p>
+			<button type="button" onclick="closureFunction()">计数!</button>
+			<p id="closure_demo">0</p>
+			<script>
+			var add = (function () {
+				var counter = 0;
+				return function () {
+					return counter += 1;
+				}
+			})();
+			function closureFunction(){
+				document.getElementById("closure_demo").innerHTML = add();
+			}
+			</script>
+		</p>
+		<hr>
+		<p>
+			<h2>JavaScript 事件</h2>
+			HTML 事件可以是浏览器行为，也可以是用户行为。在事件触发时 JavaScript 可以执行一些代码。<br>
+			<pre>
+				&lt;spansome-HTML-element some-event='JavaScript 代码'&gt;
+				&lt;some-HTML-element some-event="JavaScript 代码"&gt;
+			</pre>
+			<button onclick="this.innerHTML=Date()">现在的时间是?</button><br>
+			<table class="reference" style="width: 60%" border="1">
+				<tbody>
+					<tr>
+						<th>事件</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>onchange</td>
+						<td> HTML 元素改变</td>
+					</tr>
+					<tr>
+						<td>onclick</td>
+						<td>用户点击 HTML 元素</td>
+					</tr>
+					<tr>
+						<td>onmouseover</td>
+						<td>用户在一个HTML元素上移动鼠标</td>
+					</tr>
+					<tr>
+						<td>onmouseout</td>
+						<td>用户从一个HTML元素上移开鼠标</td>
+					</tr>
+					<tr>
+						<td>onkeydown</td>
+						<td>用户按下键盘按键</td>
+					</tr>
+					<tr>
+						<td>onload</td>
+						<td>浏览器已完成页面的加载</td>
+					</tr>
+				</tbody>
+			</table>
+		</p>
 	</body>
 </html>
