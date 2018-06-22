@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+        <meta name="renderer" content="webkit">
+        <meta name="format-detection" content="telephone=no"/>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <title>登录注册
+        </title>
+        <!-- rev-hash -->
+        <link rel="stylesheet" data-cospath-source="//passport.futu5.com/css/dist/global/common.css-EOF" href="//static.futunn.com/passport/css/dist/global/common-8c3d3206a18146f3edac117d9968578d.css"/>
+        <!-- end -->
+        <script>
+        window._i18n = {
+        locale : 'zh-cn'
+        };
+        </script>
+        <meta name="csrf-param" content="_csrf-frontend">
+        <meta name="csrf-token" content="VV9qRUNybXMKOAMnJSoYAhxvGRAzCANLHRogAwceWUcvZz43BzMuKg==">
+        <!-- rev-hash -->
+        <link rel="stylesheet" data-cospath-source="//passport.futu5.com/css/dist/site/loginReg.css-EOF" href="//static.futunn.com/passport/css/dist/site/loginReg-bdf73104d9fecf58064be0700811c90b.css"/>
+        <!-- end -->
+        <script src="//dedog-report.futunn.com/tool-dedog.js?monitorId=455434&cmd=2335&subCmd=1"></script>
+        <!-- GrowingIO Analytics code version 2.1 -->
+        <script type='text/javascript'>
+        !function(e,t,n,g,i){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},n=t.createElement("script"),tag=t.getElementsByTagName("script")[0],n.async=1,n.src=('https:'==document.location.protocol?'https://':'http://')+g,tag.parentNode.insertBefore(n,tag)}(window,document,"script","assets.growingio.com/2.1/gio.js","gio");
+        gio('init', 'a4201d90f5554adf', {});
+        gio('send');
+        </script>
+        <!-- End GrowingIO Analytics code version: 2.1 -->
+    </head>
+    <body>
+        <div class="wrapper-main">
+            <div class="m-form-wrapper j-content-wrapper">
+                <!-- tab切换开始 -->
+                <div class="tab-navs ui-tab-navs">
+                    <div class="navs-slider">
+                        <a href="#login" class="active">登录</a>
+                        <a href="#reg">注册</a>
+                    </div>
+                </div>
+                <!-- tab切换结束 -->
+                <!-- 登录的form -->
+                <div id="loginFormWrapper" class="formWrapper loginFormWrapper">
+                    <form >
+                        <ul class="ul-form-wrapper">
+                            <li class="ui-input-wrapper ui-content-phone" style="display:none">
+                                <div class="input-group phoneSelect" id="codeSelectLogin">
+                                    <div class="input-group-btn">
+                                        <div class="input-group-btn">
+                                            <a class="btn btn-default ui-select-arrow" data-toggle="dropdown" type="button" aria-expanded="false">
+                                                <span class="i-icon"></span>
+                                            </a>
+                                            <p class="dropdown-menu ui-select-options" style="display: none;">
+                                            </p>
+                                        </div>
+                                        <input class="form-control ui-select-input" type="text" readonly="">
+                                        <input class="ui-select-hidden" type="hidden" name="code" value="+86">
+                                    </div>
+                                </div>
+                                <input  name="phone" class="u-input phone-input" tabindex ="1" type="tel" value="" placeholder="手机号" />
+                                <div class="inputMsg">
+                                    <span class="ui-input-msg"></span>
+                                </div>
+                            </li>
+                            <li class="ui-input-wrapper ui-content-email">
+                                <input  name="email" class="u-input" tabindex ="1" type="text" value=""  placeholder="牛牛号/手机号/邮箱" />
+                                <div class="inputMsg">
+                                    <span class="ui-input-msg"></span>
+                                </div>
+                            </li>
+                            <li class="ui-input-wrapper">
+                                <input  name="password" class="u-input" tabindex ="2" type="password" value="" placeholder="输入密码" />
+                                <div class="inputMsg">
+                                    <span class="ui-input-msg"></span>
+                                </div>
+                            </li>
+                            <li class="ui-input-wrapper ui-content-captcha" style="display:none">
+                                <input  name="captcha" class="u-input" tabindex ="3" type="text" value="" placeholder="验证码（不区分大小写）" />
+                                <img  class="ui-captcha u-captcha" src="https://passport.futu5.com/site/captcha">
+                                <div class="inputMsg">
+                                    <span class="ui-input-msg"></span>
+                                </div>
+                            </li>
+                        </ul>
+                        <p class="u-remember-pass clearBox ui-remember-content">
+                            <input type="checkbox" name="autologin" value="1" checked> <i class="u-checkbox-layout ui-checkbox-layout checked"></i>
+                            <span>两周内自动登录</span>
+                        </p>
+                        <input type="hidden" name="domain" value="futu5.com">
+                        <input type="hidden" name="device_type" value="web">
+                        <input type="hidden" name="_csrf-frontend" value="VV9qRUNybXMKOAMnJSoYAhxvGRAzCANLHRogAwceWUcvZz43BzMuKg==">
+                        <input type="submit" class="ui-submit ui-form-submit" value="登录">
+                        <input type="submit" class="ui-submitting ui-form-submitting"  style="display:none" value="登录">
+                        <div class="ui-error-wrapper u-error-wrapper" style="display:none">
+                            <div class="ui-error-msg u-error-msg" ></div>
+                        </div>
+                        <div class="u-change-tool clearBox">
+                            <span class="">
+                                <a href="javascript:;" class="u-tab-item ui-tab-item">境外手机号登录</a>
+                                <a href="javascript:;" class="u-tab-item ui-tab-item "  style="display:none">帐号登录</a>
+                            </span>
+                            <a href="https://account.futu5.com/account/forgetpsw"  target="view_window" class="u-forget-password">忘记密码</a>
+                        </div>
+                    </form>
+                </div>
+                <!-- 登录的form结束 -->
+            </div>
+            <script data-cospath-source="//passport.futu5.com/scripts/lib/jquery.min.js-EOF" src="//static.futunn.com/passport/scripts/lib/jquery.min-4f252523d4af0b478c810c2547a63e19.js" crossorigin="anonymous"></script>
+            <script>
+            var _params={};
+            _params.jumpUrl="https://jump.futu5.com";
+            _params.target="https:\/\/www.futu5.com\/";
+            _params.language="zh-CN";
+            </script>
+            <!-- rev-hash -->
+            <script data-cospath-source="//passport.futu5.com/scripts/dist/loginRegMain.js-EOF" src="//static.futunn.com/passport/scripts/dist/loginRegMain-479d00e89f79c623e013ba41440fa4e8.js" crossorigin="anonymous"></script>
+            <!-- end -->
+        </div>
+    </body>
+</html>
