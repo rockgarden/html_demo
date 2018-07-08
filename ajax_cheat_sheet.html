@@ -2,8 +2,10 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/styles.css" type="text/css" media="all">
 		<script>
-		function loadXMLDoc()
+		// 回调函数
+		function loadTxtDoc()
 		{
 			var xmlhttp;
 			if (window.XMLHttpRequest)
@@ -20,32 +22,296 @@
 			{
 				if (xmlhttp.readyState==4 && xmlhttp.status==200)
 				{
-					document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+					document.getElementById("LoadTxtDoc").innerHTML=xmlhttp.responseText;
 				}
 			}
+			// 发送异步请求: 对象如果要用于 AJAX 的话，其 open() 方法的 async 参数必须设置为 true
 			xmlhttp.open("GET","resources/ajax_info.txt",true);
 			xmlhttp.send();
 		}
 		</script>
 	</head>
 	<body>
-		<div id="myDiv">
-			<h2>使用 AJAX 修改该文本内容</h2>
+		<div>
+			<h2>AJAX</h2>
+			AJAX = 异步 JavaScript 和 XML。<br>
+			AJAX 是一种用于创建快速动态网页的技术。<br>
+			通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。<br>
+			传统的网页（不使用 AJAX）如果需要更新内容，必需重载整个网页面。<br>
+			<ul>
+				<li>XMLHttpRequest 对象 (异步的与服务器交换数据)</li>
+				<li>JavaScript/DOM (信息显示/交互)</li>
+				<li>CSS (给数据定义样式)</li>
+				<li>XML (作为转换数据的格式)</li>
+				<li>重要：AJAX应用程序与浏览器和平台无关的！</li>
+			</ul>
+			<p>&nbsp;
+			</p>
 		</div>
-		<button type="button" onclick="loadXMLDoc()">修改内容</button>
-		<ul>
-			<li>
-				运用XHTML+CSS来表达资讯；
-			</li>
-			<li>
-				运用JavaScript操作DOM（Document Object Model）来执行动态效果；
-			</li>
-			<li>
-				运用XML和XSLT操作资料;
-			</li>
-			<li>
-				运用XMLHttpRequest或新的Fetch API与网页服务器进行异步资料交换；
-			</li>
-		</ul>
+		<hr>
+		<div>
+			<h2>AJAX 实例解析</h2>
+			<div id="LoadTxtDoc">
+				使用 AJAX 修改该文本内容。<br>
+			</div>
+			<button type="button" onclick="loadTxtDoc()">修改内容</button>
+			<ul>
+				<li>
+					运用XHTML+CSS来表达资讯；
+				</li>
+				<li>
+					运用JavaScript操作DOM（Document Object Model）来执行动态效果；
+				</li>
+				<li>
+					运用XML和XSLT操作资料;
+				</li>
+				<li>
+					运用XMLHttpRequest或新的Fetch API与网页服务器进行异步资料交换；<br>
+					可以在不重新加载整个网页的情况下，对网页的某部分进行更新；
+				</li>
+			</ul>
+		</div>
+		<hr>
+		<div>
+			<h2>向服务器发送请求请求</h2>
+			<p>如需将请求发送到服务器，我们使用 XMLHttpRequest 对象的 open() 和 send() 方法：</p>
+			<table class="reference" border="1">
+				<tbody>
+					<tr>
+						<th style="width:40%;">方法</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>open(<i>method</i>,<i>url</i>,<i>async</i>)</td>
+						<td>
+							<p>规定请求的类型、URL 以及是否异步处理请求。</p>
+							<ul class="listintable">
+								<li><i>method</i>：请求的类型；GET 或 POST</li>
+								<li><i>url</i>：文件在服务器上的位置</li>
+								<li><i>async</i>：true（异步）或 false（同步）</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td>send(<i>string</i>)</td>
+						<td>
+							<p>将请求发送到服务器。</p>
+							<ul class="listintable">
+								<li><i>string</i>：仅用于 POST 请求</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>使用 POST 请求的情况</h3>
+			<ul>
+				<li>无法使用缓存文件（更新服务器上的文件或数据库）</li>
+				<li>向服务器发送大量数据（POST 没有数据量限制）</li>
+				<li>发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠</li>
+			</ul>
+			<h3>GET 请求</h3>
+			<p>为了避免缓存的结果，可向 URL 添加一个唯一的 ID。</p>
+			<pre>
+				xmlhttp.open("GET","/try/ajax/demo_get.php?t=" + Math.random(),true);
+			</pre>
+			<p>通过 GET 方法发送信息，请向 URL 添加信息：</p>
+			<pre>
+				xmlhttp.open("GET","/try/ajax/demo_get2.php?fname=Henry&lname=Ford",true);
+			</pre>
+			<h3>POST 请求</h3>
+			<p>简单 POST 请求</p>
+			<pre>
+				xmlhttp.open("POST","/try/ajax/demo_post.php",true);
+			</pre>
+			<p>需要像 HTML 表单那样 POST 数据，请使用 setRequestHeader() 来添加 HTTP 头。然后在 send() 方法中规定您希望发送的数据</p>
+			<pre>
+				xmlhttp.open("POST","/try/ajax/demo_post2.php",true);
+				xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+				xmlhttp.send("fname=Henry&lname=Ford");
+			</pre>
+			<table class="reference" border="1">
+				<tbody>
+					<tr>
+						<th align="left" width="40%">方法</th>
+						<th align="left" width="60%">描述</th>
+					</tr>
+					<tr>
+						<td>setRequestHeader(<i>header,value</i>)</td>
+						<td>
+							<p>向请求添加 HTTP 头。</p>
+							<ul class="listintable">
+								<li><i>header</i>: 规定头的名称</li>
+								<li><i>value</i>: 规定头的值</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div>
+			<h2>服务器 响应</h2>
+			<p>如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性。</p>
+			<table class="reference">
+				<tbody>
+					<tr>
+						<th style="width:25%;">属性</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>responseText</td>
+						<td>获得字符串形式的响应数据。</td>
+					</tr>
+					<tr>
+						<td>responseXML</td>
+						<td>获得 XML 形式的响应数据。</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>如果来自服务器的响应是 XML，而且需要作为 XML 对象进行解析，请使用 responseXML 属性：</p>
+			<button type="button" onclick="loadXMLDoc()">获取我的 CD</button>
+			<div id="myXMLDocDiv"></div>
+			<script>
+			function loadXMLDoc()
+			{
+				var xmlhttp;
+				var txt,x,i;
+				if (window.XMLHttpRequest)
+				{
+					xmlhttp=new XMLHttpRequest();
+				}
+				xmlhttp.onreadystatechange=function()
+				{
+					if (xmlhttp.readyState==4 && xmlhttp.status==200)
+					{
+						xmlDoc=xmlhttp.responseXML;
+						txt="";
+						x=xmlDoc.getElementsByTagName("ARTIST");
+						for (i=0;i<x.length;i++)
+						{
+							txt=txt + x[i].childNodes[0].nodeValue + "<br>";
+						}
+						document.getElementById("myXMLDocDiv").innerHTML=txt;
+					}
+				}
+				xmlhttp.open("GET","resources/cd_catalog.xml",true);
+				xmlhttp.send();
+			}
+			</script>
+			<hr>
+			<div>
+				<h2>onreadystatechange 事件</h2>
+				<p>
+					当请求被发送到服务器时，我们需要执行一些基于响应的任务。<br>
+					每当 readyState 改变时，就会触发 onreadystatechange 事件。<br>
+					readyState 属性存有 XMLHttpRequest 的状态信息。<br>
+				</p>
+				<table class="reference notranslate">
+					<tbody>
+						<tr>
+							<th align="left" width="20%">属性</th>
+							<th align="left" width="80%">描述</th>
+						</tr>
+						<tr>
+							<td>onreadystatechange</td>
+							<td>存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。</td>
+						</tr>
+						<tr>
+							<td>readyState</td>
+							<td>
+								<p>存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。</p>
+								<ul class="listintable">
+									<li>0: 请求未初始化</li>
+									<li>1: 服务器连接已建立</li>
+									<li>2: 请求已接收</li>
+									<li>3: 请求处理中</li>
+									<li>4: 请求已完成，且响应已就绪</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td>status</td>
+							<td>200: "OK"<br>
+							404: 未找到页面</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>
+					<b>注意：</b> onreadystatechange 事件被触发 4 次（0 - 4）, 分别是： 0-1、1-2、2-3、3-4，对应着 readyState 的每个变化。
+				</p>
+				<h3>使用回调函数</h3>
+				<p>
+					回调函数是一种以参数形式传递给另一个函数的函数。<br>
+					如果您的网站上存在多个 AJAX 任务，那么您应该为创建 XMLHttpRequest 对象编写一个标准的函数，并为每个 AJAX 任务调用该函数。<br>
+					该函数调用应该包含 URL 以及发生 onreadystatechange 事件时执行的任务（每次调用可能不尽相同）.<br>
+				</p>
+				<script>
+					var xmlhttp;
+					function loadTxt(url,cfunc)
+					{
+						if (window.XMLHttpRequest)
+						{
+							xmlhttp=new XMLHttpRequest();
+						}
+						xmlhttp.onreadystatechange=cfunc;
+						xmlhttp.open("GET",url,true);
+						xmlhttp.send();
+					}
+					function myCallbackFunction()
+					{
+						loadTxt("resources/ajax_info.txt",function()
+						{
+							if (xmlhttp.readyState==4 && xmlhttp.status==200)
+							{
+								document.getElementById("myCallbackDiv").innerHTML=xmlhttp.responseText;
+							}
+						});
+					}
+				</script>
+				<button type="button" onclick="myCallbackFunction()">修改内容</button>
+				<div id="myCallbackDiv">
+					<p>修改文本内容</p>
+				</div>
+			</div>
+			<hr>
+			<div>
+				<div class="comt-main" id="div-comment-10932"><p>服务器常用的状态码及其对应的含义如下：</p>
+				<ul>
+					<li><i style="font-size:12px;color:#cfcfcf;padding-right: 4px;" class="fa fa-circle" aria-hidden="true"></i>
+						<span class="marked">200</span>：服务器响应正常。
+					</li>
+					<li><i style="font-size:12px;color:#cfcfcf;padding-right: 4px;" class="fa fa-circle" aria-hidden="true"></i>
+						<span class="marked">304</span>：该资源在上次请求之后没有任何修改（这通常用于浏览器的缓存机制，使用GET请求时尤其需要注意）。
+					</li>
+					<li><i style="font-size:12px;color:#cfcfcf;padding-right: 4px;" class="fa fa-circle" aria-hidden="true"></i>
+						<span class="marked">400</span>：无法找到请求的资源。
+					</li>
+					<li><i style="font-size:12px;color:#cfcfcf;padding-right: 4px;" class="fa fa-circle" aria-hidden="true"></i>
+						<span class="marked">401</span>：访问资源的权限不够。
+					</li>
+					<li><i style="font-size:12px;color:#cfcfcf;padding-right: 4px;" class="fa fa-circle" aria-hidden="true"></i>
+						<span class="marked">403</span>：没有权限访问资源。
+					</li>
+					<li><i style="font-size:12px;color:#cfcfcf;padding-right: 4px;" class="fa fa-circle" aria-hidden="true"></i>
+						<span class="marked">404</span>：需要访问的资源不存在。
+					</li>
+					<li><i style="font-size:12px;color:#cfcfcf;padding-right: 4px;" class="fa fa-circle" aria-hidden="true"></i>
+						<span class="marked">405</span>：需要访问的资源被禁止。
+					</li>
+					<li><i style="font-size:12px;color:#cfcfcf;padding-right: 4px;" class="fa fa-circle" aria-hidden="true"></i>
+						<span class="marked">407</span>：访问的资源需要代理身份验证。
+					</li>
+					<li><i style="font-size:12px;color:#cfcfcf;padding-right: 4px;" class="fa fa-circle" aria-hidden="true"></i>
+						<span class="marked">414</span>：请求的URL太长。
+					</li>
+					<li><i style="font-size:12px;color:#cfcfcf;padding-right: 4px;" class="fa fa-circle" aria-hidden="true"></i>
+						<span class="marked">500</span>：服务器内部错误。
+					</li>
+				</ul>
+				<div class="comt-main" id="div-comment-16623">
+					<p>补全状态码避免再去搜:</p><p>100——客户必须继续发出请求</p><p>101——客户要求服务器根据请求转换HTTP协议版本</p><p>201——提示知道新文件的URL</p><p>202——接受和处理、但处理未完成</p><p>203——返回信息不确定或不完整</p><p>204——请求收到，但返回信息为空</p><p>205——服务器完成了请求，用户代理必须复位当前已经浏览过的文件</p><p>206——服务器已经完成了部分用户的GET请求</p><p>300——请求的资源可在多处得到</p><p>301——删除请求数据</p><p>302——在其他地址发现了请求数据</p><p>303——建议客户访问其他URL或访问方式</p><p>305——请求的资源必须从服务器指定的地址得到</p><p>306——前一版本HTTP中使用的代码，现行版本中不再使用</p><p>307——申明请求的资源临时性删除</p><p>402——保留有效ChargeTo头响应</p><p>406——根据用户发送的Accept拖，请求资源不可访问</p><p>408——客户端没有在用户指定的时间内完成请求</p><p>409——对当前资源状态，请求不能完成</p><p>410——服务器上不再有此资源且无进一步的参考地址</p><p>411——服务器拒绝用户定义的Content-Length属性请求</p><p>412——一个或多个请求头字段在当前请求中错误</p><p>413——请求的资源大于服务器允许的大小</p><p>415——请求资源不支持请求项目格式</p><p>416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段</p><p>417——服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求</p><p>501——服务器不支持请求的函数</p><p>502——服务器暂时不可用，有时是为了防止发生系统过载</p><p>503——服务器过载或暂停维修</p><p>504——关口过载，服务器使用另一个关口或服务来响应用户，等待时间设定值较长</p><p>505——服务器不支持或拒绝支请求头中指定的HTTP版本</p>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
